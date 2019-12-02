@@ -3,9 +3,10 @@
 RED='\033[1;31m'
 GREEN='\033[1;32m'
 NC='\033[0m' # No Color
-COLUMNS=12  
 
+COLUMNS=12  
 ENV_FILE=.env
+REQUIRED_APP_ENV="trash"
 
 if [ ! -f "$ENV_FILE" ]; then
     echo -e "${RED}${ENV_FILE} not found${NC}"
@@ -14,10 +15,8 @@ fi
 
 source "$ENV_FILE"
 
-REQUIRED_APP_ENV="trash"
-
-if [ "${APP_ENV}" != "$REQUIRED_APP_ENV" ]; then
-    echo -e "${RED}APP_ENV should equal trash. Current APP_ENV=${APP_ENV}${NC}"
+if [ "$APP_ENV" != "$REQUIRED_APP_ENV" ]; then
+    echo -e "${RED}APP_ENV should equal ${REQUIRED_APP_ENV}. Current APP_ENV=${APP_ENV}${NC}"
     return
 fi
 
