@@ -6,6 +6,7 @@
 function brancher() {
     RED='\033[1;31m'
     GREEN='\033[1;32m'
+    YELLOW='\033[1;33m'
     NC='\033[0m' # No Color
 
     COLUMNS=12  
@@ -19,7 +20,7 @@ function brancher() {
           echo -e "${YELLOW}Success!${NC}"
           echo
       else
-        echo -e "${L_RED}ERROR${NC}"
+        echo -e "${RED}ERROR${NC}"
         echo
       fi
     }
@@ -64,7 +65,7 @@ function brancher() {
                 composer install --quiet
                 php artisan migrate:fresh --seed
                 npm run --silent prod
-                pa view:clear
+                php artisan view:clear
                 echo -e "${GREEN}branch changed${NC}"
                 break
             else
