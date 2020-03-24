@@ -11,7 +11,7 @@ function brancher() {
 
     COLUMNS=12  
     ENV_FILE=".env"
-    REQUIRED_APP_ENV="trash"
+    REQUIRED_APP_ENV="dev"
 
     # Check previous command error status
     check_command_exec_status () {
