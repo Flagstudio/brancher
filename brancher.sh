@@ -63,7 +63,7 @@ function brancher() {
                 echo -e "Working like a nigger..."
                 git reset --hard origin/$branch
                 composer install --quiet
-                php artisan migrate:fresh --seed
+                php artisan migrate --force --quiet
                 npm run --silent prod
                 php artisan view:clear
                 echo -e "${GREEN}branch changed${NC}"
